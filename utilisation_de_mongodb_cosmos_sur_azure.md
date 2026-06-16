@@ -28,8 +28,10 @@ Lien d'aide : [Gérer l'indexation dans Azure Cosmos DB for MongoDB](https://lea
 
 Réponse Q1 : A, C et E.  
 *Explication : Azure Cosmos DB for MongoDB expose une compatibilité avec les pilotes MongoDB via le protocole filaire, mais ce n'est pas une VM Azure sur laquelle le client administre lui-même MongoDB Community ou Enterprise. Le service ajoute des capacités managées Azure, comme le partitionnement, la distribution globale, la sécurité, les sauvegardes et l'intégration avec Azure. Une migration depuis MongoDB natif doit donc vérifier les compatibilités et différences de comportement.*
+
 Réponse Q2 : A, B et E.  
 *Explication : Le choix de la clé de partition est une décision majeure. Une bonne clé possède une forte cardinalité, répartit correctement les données et les RU, et correspond aux principaux filtres de requêtes afin d'éviter des lectures cross-partition inutiles. Une clé de partition n'est pas conçue pour changer régulièrement et un mauvais choix peut produire des partitions chaudes, du throttling et des coûts plus élevés.*
+
 Réponse Q3 : A, B, C et E.  
 *Explication : Azure Cosmos DB for MongoDB indexe automatiquement certains champs essentiels comme _id et la clé de partition, mais cela ne remplace pas l'analyse des requêtes métier. Les index composés peuvent être nécessaires pour les filtres et tris multi-champs. Chaque index a un coût de maintenance en écriture. Enfin, la compatibilité MongoDB doit être validée précisément avant migration, notamment pour les commandes, options et comportements avancés.*
 
